@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tripi Collections</title>
+  <meta name="description" content="A clean, mobile-first jewellery store" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header / Nav -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Main">
+      <button class="icon-btn hamburger" id="openMenu" aria-label="Open menu" title="Open menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <a class="brand" href="#">
+        <span class="brand-logo" aria-hidden="true">💎</span>
+        <span class="brand-title">Tripi</span>
+        <span class="brand-subtitle">Collections</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#products" class="nav-link">Collections</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile menu sheet -->
+  <aside class="sheet" id="menuSheet" aria-hidden="true" aria-label="Site menu">
+    <div class="sheet-header">
+      <strong>Browse</strong>
+      <button class="icon-btn" id="closeMenu" aria-label="Close menu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="sheet-content">
+      <nav class="mobile-menu">
+        <a class="pill" href="#rings">Rings</a>
+        <a class="pill" href="#necklaces">Necklaces</a>
+        <a class="pill" href="#bracelets">Bracelets</a>
+        <a class="pill" href="#earrings">Earrings</a>
+        <a class="pill" href="#sale">Sale</a>
+      </nav>
+    </div>
+    <div class="sheet-footer subtle">Need help? Email care@example.com</div>
+  </aside>
+
+  <!-- Cart sheet -->
+  <aside class="sheet" id="cartSheet" aria-hidden="true" aria-label="Shopping cart">
+    <div class="sheet-header">
+      <strong>Your Cart</strong>
+      <button class="icon-btn" id="closeCart" aria-label="Close cart">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="sheet-content" id="cartItems">
+      <div class="empty">Your cart is empty.</div>
+    </div>
+    <div class="sheet-footer">
+      <button class="btn primary" id="checkoutBtn">Checkout</button>
+    </div>
+  </aside>
+
+  <div class="backdrop" id="backdrop"></div>
+
+  <!-- Hero -->
+  <section class="hero container">
+    <div class="hero-grid">
+      <article class="hero-card full-width">
+        <img src="assets/hero/hero1.jpg" alt="Gold ring on white silk" />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 class="hero-title">Exquisite Jewellery collection for your every day</h1>
+          <p class="hero-subtitle">Discover pieces that tell your unique story</p>
+          <a class="hero-cta" href="#products">Shop the collection →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="section container" id="categories">
+    <h2>Shop by category</h2>
+    <p class="lead">Thoughtfully designed pieces to layer, gift, and treasure.</p>
+    <div class="cat-grid">
+      <button class="cat" data-category="ring" aria-label="View Rings">
+        <img src="assets/categories/rings.jpg" alt="Rings" />
+        <h3>Rings</h3>
+      </button>
+      <button class="cat" data-category="necklace" aria-label="View Necklaces">
+        <img src="assets/categories/necklaces.jpg" alt="Necklaces" />
+        <h3>Necklaces</h3>
+      </button>
+      <button class="cat" data-category="bracelet" aria-label="View Bracelets">
+        <img src="assets/categories/bracelets.jpg" alt="Bracelets" />
+        <h3>Bracelets</h3>
+      </button>
+      <button class="cat" data-category="earring" aria-label="View Earrings">
+        <img src="assets/categories/earrings.jpg" alt="Earrings" />
+        <h3>Earrings</h3>
+      </button>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="section container" id="products">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+    <h2>New arrivals</h2>
+      <button class="pill" id="viewAllBtn" style="display: none;">View All Categories</button>
+    </div>
+    <div class="toolbar">
+      <div class="filters" role="group" aria-label="Filters">
+        <button class="pill" data-filter="all">All</button>
+        <button class="pill" data-filter="ring">Rings</button>
+        <button class="pill" data-filter="necklace">Necklaces</button>
+        <button class="pill" data-filter="bracelet">Bracelets</button>
+        <button class="pill" data-filter="earring">Earrings</button>
+      </div>
+      <select class="pill" id="sorter" aria-label="Sort products">
+        <option value="pop">Most popular</option>
+        <option value="low">Price: low to high</option>
+        <option value="high">Price: high to low</option>
+      </select>
+    </div>
+
+    <div class="products" id="grid" aria-live="polite"></div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section container" id="about">
+    <h2>About Tripi Collections</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p class="lead">Tripi Collections crafts timeless jewellery pieces that celebrate your unique story and special moments.</p>
+        <p>We believe that jewellery is more than just an accessory – it is a reflection of your personality, your memories, and your journey. Our story began with three sisters, each whose name begins with the letter P, who shared a lifelong passion for crafts and jewellery. The name Tripi symbolises their bond and the vision they built together.</p>
+        <p>Every piece in our collection is carefully curated to bring elegance, meaning, and craftsmanship to your everyday moments. From delicate designs to statement pieces, we create collections that grow with you while honouring quality, ethics, and artistry.</p>
+        <p>At Tripi Collections, we are committed to sustainable practices and ethical sourcing. Each piece is crafted with love and attention to detail, ensuring that your jewellery not only looks beautiful but also carries the values of responsible craftsmanship and timeless design.</p>
+      </div>
+      <div class="about-image">
+        <img src="assets/about/sisters.jpg" alt="Three sisters crafting jewellery together" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section container" id="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-simple">
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div class="contact-details">
+          <h3>WhatsApp</h3>
+          <a href="https://wa.me/919567662493?text=Hi%20Tripi%20Collections,%20I%20would%20like%20to%20know%20more%20about%20your%20jewelry%20collection." target="_blank">+91 95676 62493</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-details">
+          <h3>Email</h3>
+          <a href="mailto:Tripicollections@gmail.com">Tripicollections@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-details">
+          <h3>Location</h3>
+          <p>Thiruvananthapuram, Kerala<br>India</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:8px">
+          <span class="brand-logo" aria-hidden="true">💎</span>
+          <span class="brand-title">Tripi</span>
+          <span class="brand-subtitle">Collections</span>
+        </div>
+        <p class="subtle" style="font-weight: bold;">"Delivering meaningful jewellery that reflects<br>who you are and the moments you treasure."</p>
+      </div>
+      <nav>
+        <strong>Quick Links</strong>
+        <div class="subtle" style="margin-top:8px; display:grid; gap:6px">
+          <a href="#products" onclick="filterByCategory('ring'); return false;">Rings</a>
+          <a href="#products" onclick="filterByCategory('necklace'); return false;">Necklaces</a>
+          <a href="#products" onclick="filterByCategory('bracelet'); return false;">Bracelets</a>
+          <a href="#products" onclick="filterByCategory('earring'); return false;">Earrings</a>
+        </div>
+      </nav>
+      <div>
+        <strong>Connect</strong>
+        <p class="subtle" style="margin-top:8px">Tripicollections@gmail.com<br/>+91 95676 62493</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick view dialog -->
+  <div class="dialog hide" id="quickView" role="dialog" aria-modal="true" aria-labelledby="qvTitle">
+    <div class="dialog-card">
+      <div class="dialog-header">
+        <strong id="qvTitle">Quick view</strong>
+        <button class="icon-btn" id="closeQv" aria-label="Close quick view">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="dialog-body" id="qvBody"></div>
+    </div>
+  </div>
+
+  <script defer src="app.js"></script>
+</body>
+</html>
+
