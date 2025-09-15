@@ -144,7 +144,7 @@ function openQuickView(e) {
         <p>Exclusively selected for you. Like this?</p>
         <div style="display:flex; gap:8px; margin-top:12px">
           <button class="btn" onclick="closeDialog('#quickView')">Close</button>
-          <a href="https://wa.me/919876543210?text=Hi%20Tripi%20Collections,%20I%27m%20interested%20in%20the%20${encodeURIComponent(p.name)}%20(${p.type})%20-%20₹${p.price.toFixed(2)}.%20Could%20you%20please%20provide%20more%20details%20about%20this%20piece?" target="_blank" class="btn primary" onclick="closeDialog('#quickView')">Inquire</a>
+          <a href="https://wa.me/+91%2095676%2062493?text=Hi%20Tripi%20Collections,%20I%27m%20interested%20in%20the%20${encodeURIComponent(p.name)}%20(${p.type})%20-%20₹${p.price.toFixed(2)}.%20Could%20you%20please%20provide%20more%20details%20about%20this%20piece?" target="_blank" class="btn primary" onclick="closeDialog('#quickView')">Inquire</a>
         </div>
       </div>
     </div>`;
