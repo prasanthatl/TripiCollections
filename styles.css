@@ -56,7 +56,7 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.85
 }
 
 /* Mobile menu */
-.mobile-menu { display: none; }
+.mobile-menu { display: block; }
 .hamburger { display: inline-flex; }
 @media (min-width: 900px) { .hamburger { display: none; } }
 
